@@ -3,10 +3,6 @@ import pymongo
 client = pymongo.MongoClient("mongodb+srv://susant:susant123@cluster0.8beoc.mongodb.net/?retryWrites=true&w=majority")
 db = client.test
 
-# creating database
-database = client['inventory']
-#creating table
-collection = database["table"]
 
 # dataset
 data =  [
@@ -72,8 +68,13 @@ data =  [
         },
     ]
 
+# creating database
+database = client['inventory']
+#creating table
+collection = database["table"]
 # insert data to table
 collection.insert_many(data)
+'''
 #record = collection.find({'status':'A'})
 #record = collection.find({'status':{'$in':['A' , 'P']}})
 #record = collection.find({'status':{"$gt" : "C"}})
@@ -83,11 +84,14 @@ collection.insert_many(data)
 #record = collection.find({'$or' : [{ 'item': 'sketch pad'} , {'qty': {"$gte": 75}}]})
 
 #collection.update_one({'item': 'canvas'} , {'$set':{'item': 'sushanta'} })
+'''
 collection.delete_one({'item': 'sushanta'})
 record = collection.find({'item': 'sushanta'})
 for i in record :
     print(i)
 
-#$in operator selects the documents where the value of a field equals any value in the specified array
-#$gt selects those documents where the value of the field is greater than (i.e. >) the specified value.
-#$gte selects those documents where the value of the field is greater than equal to (i.e. >=) the specified value.
+# $in operator selects the documents where the value of a field equals any value in the specified array
+# $gt selects those documents where the value of the field is greater than (i.e. >) the specified value.
+# $gte selects those documents where the value of the field is greater than equal to (i.e. >=) the specified value.
+# $set - for update
+# $or
