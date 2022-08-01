@@ -5,17 +5,13 @@ db = client.test
 # print(db)
 
 database = client['product']
-collection = database['attribute_table']
+collection = database['attribute']
 
 with open('attribute2.json') as fp:
     att_data = json.load(fp)
 #print(att_data)
 collection.insert_one(att_data)
-
-#collection.update_one({'packetType':'D' }, {'$set' : {'packetType': 'E'}})
-#collection.delete_one({'packetType': 'E'})
-record = collection.find()
-#print(record)
-for v in record:
-    print(v)
+# insert_one :for json record
+# insert_many :for list record
+print("insert done...")
 

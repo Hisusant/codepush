@@ -5,16 +5,25 @@ client = pymongo.MongoClient("mongodb+srv://susant:susant123@cluster0.8beoc.mong
 db = client.test
 
 database = client['product']
-collection = database['product_details']
+collection = database['attribute']
 
 with open('attribute2.json') as fp:
     att_data = json.load(fp)
     att_data1 = [att_data]
 collection.insert_many(att_data1)
+# insert_many : for list record
 
-#record = collection.find({0:1006032852})
 
-print("Done...sucess")
+
+
+'''
+# insert_one : for dict record
+with open('attribute2.json') as fp:
+    att_data = json.load(fp)
+#print(att_data)
+collection.insert_one(att_data)
+'''
+print("insert Done...sucess")
 
 
 
