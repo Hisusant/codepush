@@ -9,7 +9,7 @@ collection = database['attribute']
 
 with open('attribute2.json') as fp:
     att_data = json.load(fp)
-    att_data1 = [att_data]
+    att_data1 = [att_data]   # convert dict type to list type
 collection.insert_many(att_data1)
 # insert_many : for list record
 
