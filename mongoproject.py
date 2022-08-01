@@ -9,12 +9,12 @@ collection = database['product_details']
 
 with open('attribute2.json') as fp:
     att_data = json.load(fp)
-#print(att_data)
-collection.insert_one(att_data)
+    att_data1 = [att_data]
+collection.insert_many(att_data1)
 
-record = collection.find()
-for i in record:
-    print(i)
+#record = collection.find({0:1006032852})
+
+print("Done...sucess")
 
 
 

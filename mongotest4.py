@@ -14,7 +14,8 @@ collection.insert_one(att_data)
 
 #collection.update_one({'packetType':'D' }, {'$set' : {'packetType': 'E'}})
 #collection.delete_one({'packetType': 'E'})
-#record = collection.find({'packetType': 'E'})
-#for v in record:
- #   print(v)
+record = collection.find()
+#print(record)
+for v in record:
+    print(v)
 
