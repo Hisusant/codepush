@@ -9,7 +9,7 @@ mongo_client = pymongo.MongoClient("mongodb+srv://susant:susant123@cluster0.8beo
 database_name = mongo_client["airps"]
 collection_name = database_name["sensor"]
 
-data_file_path = "E:\PYTHON\MongoDB\mongoDB\dataset\Scania_APS_failure_prediction.ipynb"
+data_file_path = r"E:\PYTHON\MongoDB\mongoDB\dataset\airps_failure_training_set1.csv"
 
 df = pd.read_csv(data_file_path)
 print(f"rows and columns: {df.shape}")
@@ -23,5 +23,12 @@ print(json_record[0])
     
 #insert record to mongodb
 collection_name.insert_many(json_record)
-# client[database_name][collection_name].insert_many(json_record)
+
+'''
+#another way of declaring database name
+database_name= "airps"
+collection_name="sensor"
+client[database_name][collection_name].insert_many(json_record)
+'''
+
 
